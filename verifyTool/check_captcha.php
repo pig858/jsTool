@@ -2,15 +2,14 @@
 require('public_include.php');
 session_start();
 if (is_ajax()){
-	$captcha = $_POST['captcha'];//驗證碼
+	$captcha = $_POST['captcha'];
 
-	if($_SESSION['serial']==$captcha){//正確
+	if($_SESSION['serial']==$captcha){
 		echo 1;
 	}else{
 		echo 0;
 	}
-	// echo $_SESSION['serial'];
-	// echo $captcha;
+	
 }
 
 //Function to check if the request is an AJAX request
