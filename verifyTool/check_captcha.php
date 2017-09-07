@@ -5,9 +5,9 @@ if (is_ajax()){
 	$captcha = $_POST['captcha'];
 
 	if($_SESSION['serial']==$captcha){
-		echo 1;
+		echo true;
 	}else{
-		echo 0;
+		echo false;
 	}
 	
 }
