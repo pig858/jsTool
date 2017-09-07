@@ -24,22 +24,14 @@ kaiVerifyTool = (function (){
 	            return true;
 	        }
 		},
-		verifyCaptcha = function(captcha){
-			//check captcha
-    		$.ajax({
-    			type: "POST", 
-    			dataType: "text", 
-    			url: "check_captcha.php", 
-    			data: {captcha:captcha}, 
-    			success: function (data) {
-		            // console.log(data);
-		            if(data!=1){
-		              	return false;
-		            }else{
-		              	return true;
-		            }
-	        	}
-	        });
+		verifyCaptcha = function(captcha,callback){
+			$.ajax({
+				type: "POST", 
+				dataType: "text", 
+				url: "check_captcha.php", 
+				data: {captcha:captcha}, 
+				success: callback
+			});
 		};
 	reutn{
 		verifyNullString: verifyNullString,
