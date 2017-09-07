@@ -4,8 +4,10 @@ var kaiVerifyTool = {};
 kaiVerifyTool = (function (){
 
 	var verifyNullString = function(id){
-			if(document.getElementById(id).value==''){
+			if(!id){
 				return false;
+			}else{
+				return true;
 			}
 		},
 		verifyPhone = function(phone){
