@@ -4,57 +4,57 @@ var kaiVerifyTool = {};
 kaiVerifyTool = (function (){
 
 	var verifyNullString = function(id){
-			if(!id){
-				return false;
-			}else{
-				return true;
-			}
-		},
-		verifyPhone = function(phone){
-			var regPhone = /^(09[0-9]{2}-[0-9]{3}-[0-9]{3})|(09[0-9]{2}[0-9]{3}[0-9]{3})|([0][1-9]{1,4}-[0-9]{3,4}[0-9]{3,4})|([0][1-9]{1,4}-[0-9]{3,4}-[0-9]{3,4})$/;
-	    	if(!regPhone.test(phone)){
-	    		return false;
-	    	}else{
-	    		return true;
-	    	}
-		},
-		verifyEmail = function(email){
-			var regEmail = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
-	        if(!regEmail.test(email)) {
-	            return false;
-	        }else{
-	            return true;
-	        }
-		},
-		verifyCaptcha = function(captcha,callBack){
-			//check captcha
-			$.ajax({
-              	type: "POST", 
-                dataType: "text", 
-                url: "check_captcha.php", 
-                data: {captcha:captcha}, 
-                success: callBack
-            });
-        },
-        verifySameAccount = function(account,callBack){
-        	$.ajax({
-        		type: "POST",
-        		dataType: "text",
-        		url: "check_sameAccount.php",
-        		data: {account:account},
-        		success:callBack
-        	});
-        },
-        verifyPWD = function(pwd){
-        	var regPWD = /^[A-za-z0-9]{6,30}$/;
-        	if(!regPWD.test(pwd)){
-        		return false;
-        	}else{
-        		return true;
-        	}
+		if(!id){
+			return false;
+		}else{
+			return true;
+		}
+	},
+	verifyPhone = function(phone){
+		var regPhone = /^(09[0-9]{2}-[0-9]{3}-[0-9]{3})|(09[0-9]{2}[0-9]{3}[0-9]{3})|([0][1-9]{1,4}-[0-9]{3,4}[0-9]{3,4})|([0][1-9]{1,4}-[0-9]{3,4}-[0-9]{3,4})$/;
+		if(!regPhone.test(phone)){
+			return false;
+		}else{
+			return true;
+		}
+	},
+	verifyEmail = function(email){
+		var regEmail = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+		if(!regEmail.test(email)) {
+			return false;
+		}else{
+			return true;
+		}
+	},
+	verifyCaptcha = function(captcha,callBack){
+		//check captcha
+		$.ajax({
+			type: "POST", 
+			dataType: "text", 
+			url: "check_captcha.php", 
+			data: {captcha:captcha}, 
+			success: callBack
+		});
+	},
+	verifySameAccount = function(account,callBack){
+		$.ajax({
+			type: "POST",
+			dataType: "text",
+			url: "check_sameAccount.php",
+			data: {account:account},
+			success:callBack
+		});
+	},
+	verifyPWD = function(pwd){
+		var regPWD = /^[A-za-z0-9]{6,30}$/;
+		if(!regPWD.test(pwd)){
+			return false;
+		}else{
+			return true;
+		}
 	},
 	verifyTwID = function(twid) {
-		
+
 		//建立字母分數陣列(A~Z)
 
 		var city = new Array(
